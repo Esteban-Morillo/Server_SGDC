@@ -1,0 +1,25 @@
+{% extends 'bases.html' %}
+
+{% block content %}
+<main class="container ">
+    <div class="row">
+        <div class="col-md-4 offset-md-4 mt-5">
+            
+            <form action="/principal/crearformulario/" method="POST" class="card card-body">
+                <h1 class="text-center display-9 fw-bold">Formulario</h1>
+
+                {{error}}
+
+                {% csrf_token %}
+
+                {{form}}
+
+                <button class="btn btn-success">
+                    Guardar
+                </button>
+
+            </form>
+        </div>
+    </div>
+</main>
+{% endblock %}

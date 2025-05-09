@@ -1,0 +1,16 @@
+{% extends 'bases.html' %}
+
+{% block content %}
+<script>
+    window.onload = function () {
+        window.open("{{ pdf_url }}", "_blank");
+    }
+</script>
+
+<div class="d-flex justify-content-center align-items-center" style="height: 80vh;">
+    <div class="text-center p-4 rounded" style="background-color: #89d6f0; width: 60%;">
+        <h1 class="fw-bold">Vista previa del contrato</h1>
+        <p class="fs-5">El contrato se ha abierto en una nueva ventana.</p>
+    </div>
+</div>
+{% endblock %}

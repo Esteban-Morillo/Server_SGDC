@@ -1,0 +1,36 @@
+{% extends 'bases.html' %}
+
+{% block content %}
+
+<main class="container">
+    <div class="row">
+        <section class="col-md-6 offset-md-4">
+            <h1 class="text-center py-4 fw-bold display-3">Pagina Principal</h1>
+            <ul class="list-group">
+                {% for task in tasks %}
+                <li class="list-group-item ">
+                    <a href="{% url 'informes' task.id %}"style="text-decoration: none;">
+                        <header class="d-flex justify-content-between">
+                            {% if task.importante %}
+                            <h4 class="fw-bold text-dark">{{task.nombre_del_contrato}}</h4>
+                            {% else %}
+                                <h5 class="text-dark">{{task.nombre_del_contrato}}</h5>
+                            {% endif %}
+                            <p class="text-dark">{{task.user.username}}</p> 
+                        </header>                     
+                                                
+                        <div class="d-flex justify-content-between">
+                            <span class="text-dark">{{task.nombres }} {{task.apellidos }}</span>
+                            <span class="text-dark">{{task.created }}</span>
+                        </div>                                            
+                        
+                    </a>                    
+                </li>
+                {% endfor %}
+            </ul>
+        </section>
+    </div>
+</main>
+{% endblock %}
+
+

@@ -1,0 +1,43 @@
+{% extends 'bases.html' %}
+
+{% block content %}
+
+<main class="container">
+    <div class="row">
+        <div class="col-md-5 offset-md-4 mt-5">
+            
+            <form method="POST" class="card card-body">
+                <h1 class="text-center display-20 fw-bold">Informes</h1>
+                {{error}}
+                {% csrf_token %}
+                {{form}}
+
+                <div class="text-center mt-3">
+                    <button class="btn btn-primary" style="width: 180px; height: 50px;">
+                        Actualizar contrato
+                    </button>
+                </div>
+            </form>
+
+            <div class="d-flex justify-content-center gap-3 mt-3">
+                <form action="{% url 'tarea_realizada' task.id %}" method="POST">
+                    {% csrf_token %}
+                    <button class="btn btn-success" style="width: 150px; height: 50px;">
+                        Cerrar contrato
+                    </button>
+                </form>
+
+                <form action="{% url 'tarea_eliminada' task.id %}" method="POST">
+                    {% csrf_token %}
+                    <button class="btn btn-danger" style="width: 150px; height: 50px;">
+                        Eliminar contrato
+                    </button>
+                </form>
+                
+            </div>
+        </div>
+    </div>
+</main>
+
+
+{% endblock %}
